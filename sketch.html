@@ -122,6 +122,8 @@
                     <option>11:00 PM</option>
                     <option>11:30 PM</option>
                     <option>00:00 AM</option>
+                    <option></option>
+                    <option></option>
                   </select>
                 </div>
               </div>
@@ -156,8 +158,9 @@
                   </select>
                 </div>
               </div>
-              <button class="btn btn-primary mx-auto" type="submit">Reserve</button>
             </div>
+            <button class="btn btn-primary mx-auto" type="submit">Reserve</button>
+          
           </form>
         </div>
       </div>
@@ -192,6 +195,15 @@
           format: "m/d/Y",
           minDate: 0,
         });
+
+        $("#hour").datetimepicker({
+          timepicker: true,
+          datepicker: false,
+          format: "H:i",
+          hours24: false,
+          allowTimes: ["10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00","13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00","17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00","22:30", "23:00", "23:30", "00:00"],  
+        });
+
     </script>
 
     <script type="text/javascript" src="weather.js"></script>
