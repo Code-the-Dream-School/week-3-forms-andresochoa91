@@ -1,6 +1,8 @@
 body{
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+  background: url("./landscape.jpg") center center/cover no-repeat;
 }
 
 img {
@@ -9,5 +11,6 @@ img {
 }
 
 .mw {
-  max-width: 1000px !important;
+  max-width: 900px !important;
 }
+
