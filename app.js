@@ -1,10 +1,6 @@
-//For date time picker
-$("#calendar").datetimepicker({
-  timepicker: false,
-  datepicker: true,
-  format: "m/d/Y",
-  minDate: 0,
-});
+let today = new Date().toISOString().split('T')[0];
+document.querySelector("#calendar").setAttribute('min', today);
+
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function() {
