@@ -56,7 +56,7 @@
                     <div class="input-group-prepend">
                       <div class="input-group-text"><img src="./icons/phone.svg" alt="phone-icon"></div>
                     </div>
-                    <input pattern="^(1\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$" class="rounded-right form-control" type="text" placeholder="Format: 1234567890" required>
+                    <input pattern="^(\+?1?\s?)?(\(\d{3}\)|\d{3})[\s|\-]?\d{3}[\s|\-]?\d{4}$" class="rounded-right form-control" type="text" placeholder="Format: 1234567890" required>
                     <div class="invalid-feedback">
                       Invalid phone number. Ex: 4151112233
                     </div>
@@ -151,7 +151,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                       <label for="phone-join">Phone</label>
-                      <input id="phone-join" pattern="^(1\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$" class="rounded-right form-control" type="text" placeholder="Format: 1234567890" required>
+                      <input id="phone-join" pattern="^(\+?1?\s?)?(\(\d{3}\)|\d{3})[\s|\-]?\d{3}[\s|\-]?\d{4}$" class="rounded-right form-control" type="text" placeholder="Format: 1234567890" required>
                       <div class="invalid-feedback">
                         Invalid phone number. Ex: 4151112233
                       </div>
