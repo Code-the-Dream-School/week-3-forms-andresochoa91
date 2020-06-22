@@ -56,9 +56,9 @@
                     <div class="input-group-prepend">
                       <div class="input-group-text"><img src="./icons/phone.svg" alt="phone-icon"></div>
                     </div>
-                    <input pattern="^(\+?1?\s?)?(\(\d{3}\)|\d{3})[\s|\-]?\d{3}[\s|\-]?\d{4}$" class="rounded-right form-control" type="text" placeholder="Format: 1234567890" required>
+                    <input pattern="^(\+?1\s?)?(\(\d{3}\)|\d{3})[\s|\-]?\d{3}[\s|\-]?\d{4}$" class="rounded-right form-control" type="text" placeholder="Format: 444 333 2222" required>
                     <div class="invalid-feedback">
-                      Invalid phone number. Ex: 4151112233
+                      Invalid phone number. Valid: 444 333 2222, 4443332222, 444-333-2222, (444)333-2222 
                     </div>
                   </div>
     
@@ -119,6 +119,9 @@
             <div class="modal-content">
               <div class="modal-header">
                 <p class="modal-title mx-auto" id="modal2Label">We are happy that you want to be part of our team!</p>
+                <button type="button" class="close" id="close-btn-2" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
     
               <div class="modal-body">
@@ -127,14 +130,14 @@
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
                       <label for="first-name">First Name</label>
-                      <input type="text" class="form-control" id="first-name" required>
+                      <input type="text" class="form-control" id="first-name" placeholder="Ex: John" required>
                       <div class="invalid-feedback">
                         First Name required!  
                       </div>
                     </div>
                     <div class="col-md-6 mb-3">
                       <label for="last-name">Last Name</label>
-                      <input type="text" class="form-control" id="last-name" required>
+                      <input type="text" class="form-control" id="last-name" placeholder="Ex: Doe" required>
                       <div class="invalid-feedback">
                         Last Name required!  
                       </div>
@@ -144,14 +147,14 @@
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
                       <label for="email-join">Email address</label>
-                      <input placeholder="Email Address" type="email" class="rounded-right form-control" id="email-join" aria-describedby="emailHelp" required>
+                      <input placeholder="Ex: john@gmail.com" type="email" class="rounded-right form-control" id="email-join" aria-describedby="emailHelp" required>
                       <div class="invalid-feedback">
                         Please provide a valid email address.
                       </div>
                     </div>
                     <div class="col-md-6 mb-3">
                       <label for="phone-join">Phone</label>
-                      <input id="phone-join" pattern="^(\+?1?\s?)?(\(\d{3}\)|\d{3})[\s|\-]?\d{3}[\s|\-]?\d{4}$" class="rounded-right form-control" type="text" placeholder="Format: 1234567890" required>
+                      <input id="phone-join" pattern="^(\+?1\s?)?(\(\d{3}\)|\d{3})[\s|\-]?\d{3}[\s|\-]?\d{4}$" class="rounded-right form-control" type="text" placeholder="Format: 444 333 2211" required>
                       <div class="invalid-feedback">
                         Invalid phone number. Ex: 4151112233
                       </div>
@@ -166,7 +169,7 @@
                       <option value="2">Back-end Developer</option>
                       <option value="3">Full-stack Developer</option>
                     </select>
-                    <div class="invalid-feedback">Example invalid custom select feedback</div>
+                    <div class="invalid-feedback">Please choose one position</div>
                   </div>
     
                   <div class="custom-control custom-radio">
@@ -191,7 +194,7 @@
                     <label for="upload">Upload your resume and list of references</label>
                     <input id="upload" type="file" class=" form-control input-group mb-3" required>
                     <div class="invalid-feedback">
-                      This field is required!
+                      Resume required!
                     </div>
                   </div>
                   

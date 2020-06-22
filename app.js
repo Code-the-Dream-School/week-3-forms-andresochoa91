@@ -1,7 +1,42 @@
+//Today's date for calendar
 let today = new Date().toISOString().split('T')[0];
 document.querySelector("#calendar").setAttribute('min', today);
 
+//To create people options
+(function () {
+  for (let i = 1; i <= 20; i++) {
+    let option = document.createElement("option");
+    if (i === 1) {
+      option.textContent = `${i} person`;
+    } else {
+      option.textContent = `${i} people`;
+    }
+    document.querySelector("#people").appendChild(option);
+  }
+})();
 
+//To create schedule options
+(function () {
+  let hour = 10;
+  let ampm = "AM";
+  let half = "00"
+  
+  for (let i = 0; i < 29; i++) {
+    if (hour === 12 && ampm === "AM") {
+      ampm = "PM"
+    } else if (hour === 13) {
+      hour = 1;
+    } else if (i === 28) {
+      ampm = "AM";
+    }
+    let option = document.createElement("option");
+    option.textContent = `${hour}:${half} ${ampm}`;
+    document.querySelector("#hours").appendChild(option);
+    hour = i % 2 !== 0 ? hour + 1 : hour;
+    half = half === "00" ? "30" : "00";
+  }  
+})();
+             
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function() {
   'use strict';
@@ -20,27 +55,3 @@ document.querySelector("#calendar").setAttribute('min', today);
     });
   }, false);
 })();
-
-//To create people options
-for (let i = 1; i <= 20; i++) {
-  let option = document.createElement("option");
-  if (i === 1) {
-    option.textContent = `${i} person`;
-  } else {
-    option.textContent = `${i} people`;
-  }
-  document.querySelector("#people").appendChild(option);
-}
-
-//To create schedule options
-let hours = ["10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00 PM","12:30 PM", "1:00 PM", 
-             "1:30 PM", "2:00 PM","2:30 PM", "3:00 PM","3:30 PM", "4:00 PM","4:30 PM", "5:00 PM",
-             "5:30 PM", "6:00 PM","6:30 PM", "7:00 PM","7:30 PM", "8:00 PM","8:30 PM", "9:00 PM",
-             "9:30 PM", "10:00 PM", "10:30 PM", "11:00 PM", "11:30 PM", "12:00 AM"];
-
-for (let i = 0; i < hours.length; i++) {
-  let option = document.createElement("option");
-  option.textContent = `${hours[i]}`;
-  document.querySelector("#hours").appendChild(option);
-}
-
