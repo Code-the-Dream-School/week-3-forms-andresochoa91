@@ -18,3 +18,27 @@ img {
   margin: 0;
   padding: 0;
 }
+
+#upload {
+  margin-bottom: 0 !important;
+}
+
+#fake-file-input {
+  background-color: #fff;
+}
+
+.hf {
+  height: 38px !important;
+  cursor: pointer;
+}
+
+.remove-file {
+  margin-left: 10px ;
+}
+
+#add-more {
+  background-color:#e9ecef;
+  border: #ced4da solid 1px;
+  color: #495057;
+  display: none !important;
+}

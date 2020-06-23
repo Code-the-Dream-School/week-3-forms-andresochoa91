@@ -12,9 +12,8 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
-    <!-- For date time picker -->
   </head>
-  <body>
+  <body onload="form1.reset(); form2.reset()">
 
     <div class="d-flex flex-column align-items-center justify-content-center min-vh-100">
 
@@ -24,7 +23,7 @@
         <button type="button" class="m-2 btn btn-primary" data-toggle="modal" data-target="#modal1">
           Reservation
         </button>
-        <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1Label" aria-hidden="true">
+        <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1Label" aria-hidden="true" data-backdrop="static">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -35,7 +34,7 @@
               </div>
     
               <div class="modal-body">
-                <form class="needs-validation" novalidate>
+                <form id="form1" class="needs-validation" novalidate>
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
                       <input type="text" class="form-control" placeholder="First Name" required>
@@ -76,7 +75,7 @@
                     <div class="input-group-prepend">
                       <div class="input-group-text"><img src="./icons/calendar.png" alt="calendar-icon"></div>
                     </div>
-                    <input id="calendar" class="rounded-right form-control" type="date" placeholder="mm/dd/yy" required>
+                    <input type="date" id="calendar" class="rounded-right form-control" placeholder="mm/dd/yy" required>
                     <div class="invalid-feedback">
                       Please provide a valid date.
                     </div>
@@ -114,7 +113,7 @@
         <button type="button" class="m-2 btn btn-primary" data-toggle="modal" data-target="#modal2">
           Join us
         </button>
-        <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="modal2Label" aria-hidden="true">
+        <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="modal2Label" aria-hidden="true" data-backdrop="static">
           <div class="modal-dialog mw">
             <div class="modal-content">
               <div class="modal-header">
@@ -126,7 +125,7 @@
     
               <div class="modal-body">
                 
-                <form class="needs-validation" novalidate>
+                <form id="form2" class="needs-validation" novalidate>
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
                       <label for="first-name">First Name</label>
@@ -176,6 +175,7 @@
                     <input type="radio" class="custom-control-input" id="radio1" name="radio-stacked" required>
                     <label class="custom-control-label" for="radio1">Full-Time</label>
                   </div>
+                  
                   <div class="custom-control custom-radio mb-3">
                     <input type="radio" class="custom-control-input" id="radio2" name="radio-stacked" required>
                     <label class="custom-control-label" for="radio2">Part-Time</label>
@@ -189,18 +189,32 @@
                       This field is required!
                     </div>
                   </div>
-          
-                  <div class="mb-3">
-                    <label for="upload">Upload your resume and list of references</label>
-                    <input id="upload" type="file" class=" form-control input-group mb-3" required>
-                    <div class="invalid-feedback">
-                      Resume required!
-                    </div>
-                  </div>
                   
-                  <button class="btn btn-primary mx-auto" type="submit">Send</button>
+                  <div id="files-to-upload">
+                    <div id="file1">
+                      <label for="file-input1">Upload your resume and list of references (No more than 5 files)</label>
+                      <div id="main-file-input1" class="input-group mb-2 mr-sm-2">
+                        <div onclick="fileInputActive(this.parentElement.parentElement)" id="browse1" class="input-group-prepend hf">
+                          <div class="input-group-text">Here your resume</div>
+                        </div>
+                        <input id="file-input1" type="file" hidden>
+                        <input onclick="fileInputActive(this.parentElement.parentElement)" id="fake-file-input1" class="rounded-right form-control hf" placeholder="Click here" onkeydown="return false;" required >
+                        <button onclick="removeFile(this)" type="button" class="close remove-file" aria-label="Close" hidden>
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div class="invalid-feedback">
+                          Your resume is required! 
+                        </div>
+                      </div>  
+                    </div>
+
+                  </div>
+
+                  <button id="add-more" class="d-block btn">Add more files</button>
+                  
+                  <button class="btn btn-primary mx-auto mt-3" type="submit">Send</button>
                 </form>
-    
+                
               </div>
             </div>
           </div>

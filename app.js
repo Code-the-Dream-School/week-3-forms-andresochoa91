@@ -1,3 +1,7 @@
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+
 //Today's date for calendar
 let today = new Date().toISOString().split('T')[0];
 document.querySelector("#calendar").setAttribute('min', today);
@@ -55,3 +59,55 @@ document.querySelector("#calendar").setAttribute('min', today);
     });
   }, false);
 })();
+
+function fileInputActive (event) { 
+  let fileInput = document.querySelector(`#file-input${event.id.slice(4)}`);
+  let fakeFileInput = document.querySelector(`#fake-file-input${event.id.slice(4)}`);
+  fileInput.click();
+
+  fileInput.addEventListener("change", () => {
+    if (fileInput.value) {
+      fakeFileInput.value = fileInput.value.match( /[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+      event.querySelector(".remove-file").removeAttribute("hidden");
+      document.querySelector("#add-more").setAttribute("style", "display: block !important");
+    }
+  });
+};
+
+let filesCount = 1;
+
+document.querySelector("#add-more").addEventListener("click", () => {
+  if (document.querySelector("#files-to-upload").children.length <= 4) {
+    filesCount++;
+    const newFile = document.createElement("div");
+    newFile.id = `file${filesCount}`;
+    newFile.innerHTML = `
+    <div id="main-file-input${filesCount}" class="input-group mb-2 mr-sm-2">
+      <div onclick="fileInputActive(this.parentElement.parentElement)" id="browse${filesCount}" class="input-group-prepend hf">
+        <div class="input-group-text">Choose a file...</div>
+      </div>
+      <input id="file-input${filesCount}" type="file" hidden>
+      <input onclick="fileInputActive(this.parentElement.parentElement)" id="fake-file-input${filesCount}" class="rounded-right form-control hf" placeholder="Click here" onkeydown="return false;" required >
+      <button onclick="removeFile(this)" type="button" class="close remove-file" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    `;
+    document.querySelector("#files-to-upload").appendChild(newFile);
+    document.querySelector(`#fake-file-input${filesCount}`).click();
+  }
+})
+
+function removeFile (event) { 
+  let fileID = event.parentElement.parentElement.id;
+  if (fileID === "file1") {
+    document.querySelector("#add-more").setAttribute("style", "display: none !important");
+    event.setAttribute("hidden", "hidden");
+    event.parentElement.children[2].value = "";
+  } else {
+    document.querySelector("#files-to-upload").removeChild(event.parentElement.parentElement);
+  }
+};
+
+document.querySelector("#add-more").addEventListener("click", (event) => event.preventDefault())
+
