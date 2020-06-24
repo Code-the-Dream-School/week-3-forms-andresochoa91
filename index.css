@@ -32,9 +32,12 @@ img {
   cursor: pointer;
 }
 
-.remove-file {
-  margin-left: 10px;
-  margin-right: 10px;
+.close span {
+  padding: 5px 15px;
+}
+
+.remove-file span {
+  color: #00f;
 }
 
 #add-more {
