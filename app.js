@@ -90,10 +90,6 @@ function shouldAdd12Hours(isTimeAM, isTimeTwelve) {
   return false;
 }
 
-
-
-
-
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function() {
   'use strict';
